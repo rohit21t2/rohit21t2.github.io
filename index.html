@@ -185,20 +185,21 @@
     #about p {
       font-size: 1.1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
     }
 
     /* Services Section */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .service-card {
       background: #1e1e2f;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -213,13 +214,18 @@
     .service-card h3 {
       color: #ff00ff;
       margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
     }
 
     /* Projects Section */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -240,12 +246,19 @@
     .project-card h3 {
       color: #00BFFF;
       margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
     }
 
     .project-card a {
       color: #ff00ff;
       font-weight: 500;
       text-decoration: none;
+      font-size: 0.95rem;
     }
 
     .project-card a:hover {
@@ -255,8 +268,8 @@
     /* Skills Section */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -278,6 +291,7 @@
     .skill-card p {
       color: #ff00ff;
       font-weight: 500;
+      font-size: 0.9rem;
     }
 
     /* Contact Section */
@@ -325,6 +339,16 @@
       .sidebar.active + main {
         margin-left: 200px;
       }
+
+      .services-grid, .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -349,6 +373,36 @@
         padding: 3rem 1rem;
       }
 
+      .services-grid, .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 0.8rem;
+      }
+
+      .service-card, .project-card {
+        padding: 1.2rem;
+      }
+
+      .skill-card {
+        padding: 0.8rem;
+      }
+
+      .service-card h3, .project-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-card p, .project-card p, .project-card a {
+        font-size: 0.9rem;
+      }
+
+      .skill-card p {
+        font-size: 0.85rem;
+      }
+
       .menu-toggle {
         display: block;
       }
@@ -369,6 +423,40 @@
 
       .cta-btn {
         padding: 0.6rem 1.5rem;
+      }
+
+      .services-grid, .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.6rem;
+      }
+
+      .service-card, .project-card {
+        padding: 1rem;
+      }
+
+      .skill-card {
+        padding: 0.6rem;
+      }
+
+      .service-card h3, .project-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .service-card p, .project-card p, .project-card a {
+        font-size: 0.85rem;
+      }
+
+      .skill-card p {
+        font-size: 0.8rem;
+      }
+
+      #about p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -403,7 +491,9 @@
     <section id="about">
       <h2>About Me</h2>
       <div class="about-content">
-        <p>I'm a passionate Flutter developer with a knack for building cross-platform mobile apps that are both functional and visually appealing. My expertise lies in Dart, Firebase, and UI/UX design, complemented by skills in web development and IoT integration. I thrive on solving complex problems and delivering scalable solutions with a user-centric approach.</p>
+        <p>I’m a Flutter enthusiast who thrives on crafting vibrant, cross-platform mobile apps with stunning UI/UX and seamless backend integration. My creativity shines through in building user-centric solutions, from IoT-based weather apps to social platforms, using Dart, Firebase, and tools like Figma and Penpot.</p>
+        <p>Beyond mobile development, I bring responsive and modern websites to life with HTML, CSS, and JavaScript, ensuring a cohesive digital experience across platforms.</p>
+        <p>With a B.Tech in Computer Science and Engineering, I combine technical expertise with a passion for problem-solving. I’ve earned certifications in Flutter, UI/UX Designing, Android App Development, and DBMS from Tutedude, as well as Web Development from Internshala, equipping me to deliver impactful and scalable digital solutions.</p>
       </div>
     </section>
 
@@ -434,7 +524,7 @@
     <section id="projects">
       <h2>My Projects</h2>
       <div class="projects-grid">
-      <div class="project-card">
+        <div class="project-card">
           <h3>Memories</h3>
           <p>A social media app for couples to create memories, chat, and call, built with Flutter and Firebase.</p>
           <a href="https://github.com/rohit21t2/memories" target="_blank">View Project</a>
@@ -540,4 +630,4 @@
     });
   </script>
 </body>
-</html>s
+</html>
