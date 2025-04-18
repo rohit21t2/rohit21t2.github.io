@@ -2,204 +2,391 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohit Yadav | Flutter Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #121212;
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
       color: #e0e0e0;
-      animation: fadeIn 1s ease-in;
+      overflow-x: hidden;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.3s ease;
     }
 
-    header {
+    nav.scrolled {
       background: #1f1f1f;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #00BFFF;
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    nav ul {
+      display: flex;
+      list-style: none;
     }
 
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
+    nav ul li {
+      margin-left: 2rem;
     }
 
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00BFFF;
+    }
+
+    /* General Section Styling */
     section {
-      padding: 2rem 1rem;
-      max-width: 1000px;
-      margin: auto;
+      padding: 5rem 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       opacity: 0;
-      animation: slideUp 1s ease-out forwards;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out forwards;
     }
 
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.9s; }
-    section:nth-of-type(5) { animation-delay: 1.2s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.4s; }
+    section:nth-child(4) { animation-delay: 0.6s; }
+    section:nth-child(5) { animation-delay: 0.8s; }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h2 {
+      font-size: 2.5rem;
       color: #00BFFF;
-      border-bottom: 2px solid #333;
-      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
 
-    .projects, .certs, .edu, .skills {
+    /* Home Section */
+    #home {
+      background: linear-gradient(135deg, #00BFFF 0%, #1f1f1f 100%);
+      text-align: center;
+      padding: 8rem 2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    #home h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      animation: slideInLeft 1s ease-out;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #e0e0e0;
+      animation: slideInRight 1s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #00BFFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #0088cc;
+      transform: scale(1.05);
+    }
+
+    /* Services Section */
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .card {
-      background: #1f1f1f;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      color: #888;
-      background: #1f1f1f;
+      gap: 2rem;
+      max-width: 1200px;
       margin-top: 2rem;
     }
 
-    a {
+    .service-card {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .service-card h3 {
       color: #00BFFF;
-      text-decoration: none;
+      margin-bottom: 1rem;
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin-top: 2rem;
     }
 
-    ul {
+    .project-card {
+      background: #1f1f1f;
+      padding: 1.5rem;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .project-card h3 {
+      color: #00BFFF;
+      margin-bottom: 1rem;
+    }
+
+    .project-card a {
+      color: #00BFFF;
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      max-width: 600px;
+      margin-top: 2rem;
+    }
+
+    .contact-info ul {
       list-style: none;
-      padding: 0;
       margin: 1rem 0;
     }
 
-    li {
-      margin: 0.3rem 0;
+    .contact-info li {
+      margin: 0.5rem 0;
+    }
+
+    .contact-info a {
+      color: #00BFFF;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #0088cc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1f1f1f;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1f1f1f;
+        padding: 1rem;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: #00BFFF;
+        font-size: 1.5rem;
+      }
+
+      #home h1 {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Rohit Yadav</h1>
-    <p>Flutter Developer | Software Developer</p>
-  </header>
-
-  <section>
-    <h2>About Me</h2>
-    <p>I’m a passionate Flutter developer with expertise in Dart and mobile app development. I also have foundational knowledge of HTML, CSS, Python, cybersecurity, and cloud computing. I enjoy building efficient, scalable apps with beautiful UIs and seamless backend integration.</p>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>WeatherSense</h3>
-        <p>An IoT-based Flutter app displaying real-time weather data (temperature, humidity, pressure, rain) collected via Arduino and ESP8266 using the ThingSpeak API.</p>
-      </div>
-      <div class="card">
-        <h3>Memories</h3>
-        <p>A social media app for couples to create memories, chat, call, and much more — built with Flutter.</p>
-      </div>
-      <!-- Add more project cards as needed -->
-    </div>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="card"><p>Dart, Flutter, Firebase</p></div>
-      <div class="card"><p>REST APIs, SQLite, SQL</p></div>
-      <div class="card"><p>HTML, CSS, Git, GitHub</p></div>
-      <div class="card"><p>Problem Solving, UI/UX Design</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Certifications</h2>
-    <div class="certs">
-      <div class="card">
-        <h3>Flutter Development</h3>
-        <p>Tutedude | 2025 - Present</p>
-      </div>
-      <div class="card">
-        <h3>UI/UX Designing</h3>
-        <p>Tutedude | 2025 - Present</p>
-      </div>
-      <div class="card">
-        <h3>Web Development</h3>
-        <p>Internshala | Aug 2023 - Oct 2023</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="edu">
-      <div class="card">
-        <h3>B.Tech, Govt. Engineering College Jhalawar</h3>
-        <p>2021 - Present | CGPA: 6.8</p>
-      </div>
-      <div class="card">
-        <h3>Class 12 - Rajdhani Public Sr. Sec. School</h3>
-        <p>2020 - 2021 | 90.6%</p>
-      </div>
-      <div class="card">
-        <h3>Class 10 - Bansal Institute of Education</h3>
-        <p>2018 - 2019 | 74.5%</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>Feel free to reach out:</p>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="logo">Rohit Yadav</div>
     <ul>
-      <li><a href="mailto:rohit901792@gmail.com">Email: rohit901792@gmail.com</a></li>
-      <li><a href="https://github.com/rohit21t2" target="_blank">GitHub: rohit21t2</a></li>
-      <li><a href="https://linkedin.com/in/rohit21t2" target="_blank">LinkedIn: rohit21t2</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="menu-toggle">☰</div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Flutter Developer & UI/UX Enthusiast</h1>
+    <p>Hi, I'm Rohit Yadav, a passionate Flutter developer crafting seamless, scalable mobile apps with stunning UI/UX. Let's build something extraordinary together!</p>
+    <a href="#contact" class="cta-btn">Get in Touch</a>
   </section>
 
+  <!-- Services Section -->
+  <section id="services">
+    <h2>My Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Flutter App Development</h3>
+        <p>Building cross-platform mobile apps with Flutter and Dart, ensuring high performance and beautiful UI.</p>
+      </div>
+      <div class="service-card">
+        <h3>UI/UX Design</h3>
+        <p>Creating intuitive and visually appealing user interfaces with a focus on user experience.</p>
+      </div>
+      <div class="service-card">
+        <h3>Backend Integration</h3>
+        <p>Connecting apps to Firebase, REST APIs, and SQLite for robust backend functionality.</p>
+      </div>
+      <div class="service-card">
+        <h3>IoT App Development</h3>
+        <p>Developing IoT-based apps using platforms like ThingSpeak for real-time data integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>WeatherSense</h3>
+        <p>An IoT-based Flutter app displaying real-time weather data (temperature, humidity, pressure, rain) using Arduino, ESP8266, and ThingSpeak API.</p>
+        <a href="https://github.com/rohit21t2/weathersense" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Memories</h3>
+        <p>A social media app for couples to create memories, chat, and call, built with Flutter and Firebase.</p>
+        <a href="https://github.com/rohit21t2/memories" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A dynamic portfolio website showcasing my skills and projects, built with HTML, CSS, and JavaScript.</p>
+        <a href="https://github.com/rohit21t2/portfolio" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p>Interested in collaborating or have a project in mind? Reach out to me!</p>
+      <ul>
+        <li><a href="mailto:rohit901792@gmail.com">Email: rohit901792@gmail.com</a></li>
+        <li><a href="https://github.com/rohit21t2" target="_blank">GitHub: rohit21t2</a></li>
+        <li><a href="https://linkedin.com/in/rohit21t2" target="_blank">LinkedIn: rohit21t2</a></li>
+      </ul>
+      <a href="mailto:rohit901792@gmail.com" class="cta-btn">Send a Message</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Rohit Yadav. All rights reserved.
+    © 2025 Rohit Yadav. All rights reserved.
   </footer>
 
+  <script>
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      navUl.classList.toggle('active');
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
