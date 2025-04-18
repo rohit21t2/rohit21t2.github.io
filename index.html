@@ -268,9 +268,11 @@
     /* Skills Section */
     .skills-grid {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
-      max-width: 600px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -281,6 +283,7 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #00BFFF;
+      flex: 0 1 120px;
     }
 
     .skill-card:hover {
@@ -346,11 +349,11 @@
       }
 
       .skills-grid {
-        max-width: 500px;
         gap: 0.9rem;
       }
 
       .skill-card {
+        flex: 0 1 100px;
         padding: 0.9rem;
       }
 
@@ -387,16 +390,16 @@
       }
 
       .skills-grid {
-        max-width: 400px;
         gap: 0.8rem;
+      }
+
+      .skill-card {
+        flex: 0 1 90px;
+        padding: 0.8rem;
       }
 
       .service-card, .project-card {
         padding: 1.2rem;
-      }
-
-      .skill-card {
-        padding: 0.8rem;
       }
 
       .service-card h3, .project-card h3 {
@@ -439,16 +442,16 @@
       }
 
       .skills-grid {
-        max-width: 300px;
         gap: 0.7rem;
+      }
+
+      .skill-card {
+        flex: 0 1 80px;
+        padding: 0.7rem;
       }
 
       .service-card, .project-card {
         padding: 1rem;
-      }
-
-      .skill-card {
-        padding: 0.7rem;
       }
 
       .service-card h3, .project-card h3 {
