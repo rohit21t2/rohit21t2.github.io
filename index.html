@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohit Yadav | Flutter Developer Portfolio</title>
+  <title>Rohit Yadav | Software Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -387,16 +387,20 @@
       }
 
       .skills-grid {
-        max-width: 400px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100%;
         gap: 0.8rem;
+      }
+
+      .skill-card {
+        flex: 0 1 90px;
+        padding: 0.8rem;
       }
 
       .service-card, .project-card {
         padding: 1.2rem;
-      }
-
-      .skill-card {
-        padding: 0.8rem;
       }
 
       .service-card h3, .project-card h3 {
@@ -439,16 +443,16 @@
       }
 
       .skills-grid {
-        max-width: 300px;
         gap: 0.7rem;
+      }
+
+      .skill-card {
+        flex: 0 1 80px;
+        padding: 0.7rem;
       }
 
       .service-card, .project-card {
         padding: 1rem;
-      }
-
-      .skill-card {
-        padding: 0.7rem;
       }
 
       .service-card h3, .project-card h3 {
@@ -490,8 +494,8 @@
   <main>
     <!-- Home Section -->
     <section id="home">
-      <h1>Creative Flutter Developer</h1>
-      <p>Hey, I'm Rohit Yadav, a Flutter enthusiast crafting vibrant, user-friendly mobile apps with a splash of creativity. From stunning UI/UX to seamless backend integration, I bring ideas to life!</p>
+      <h1>Creative Flutter Software Developer</h1>
+      <p>Hey, I'm Rohit Yadav, a Flutter enthusiast crafting vibrant, user-friendly mobile, desktop, web apps with a splash of creativity. From stunning UI/UX to seamless backend integration, I bring ideas to life!</p>
       <a href="#contact" class="cta-btn">Hire Me</a>
     </section>
 
@@ -499,7 +503,7 @@
     <section id="about">
       <h2>About Me</h2>
       <div class="about-content">
-        <p>I'm a passionate Flutter developer with a B.Tech in Computer Science and Engineering, driven by a knack for building cross-platform mobile apps that are both functional and visually appealing. My expertise lies in Dart, Flutter, Firebase, and UI/UX design, Backend & API integration and Web Design. I thrive on solving complex problems and delivering scalable solutions with a user-centric approach. I have earned certifications in Flutter, UI/UX Designing, Android App Development, and DBMS from Tutedude, as well as Web Development from Internshala, enhancing my ability to create impactful digital solutions</p>
+        <p>I'm a passionate Flutter Software Developer with a B.Tech in Computer Science and Engineering, driven by a knack for building multi cross-platform apps that are both functional and visually appealing. My expertise lies in Dart, Flutter, Firebase, and UI/UX design, Backend & API integration and Web Design. I thrive on solving complex problems and delivering scalable solutions with a user-centric approach. I have earned certifications in Flutter, UI/UX Designing, Android App Development, and DBMS from Tutedude, as well as Web Development from Internshala, enhancing my ability to create impactful digital solutions</p>
       </div>
     </section>
 
@@ -508,12 +512,8 @@
       <h2>My Services</h2>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Flutter Development</h3>
-          <p>Building high-performance, cross-platform mobile apps using Flutter and Dart with stunning UI.</p>
-        </div>
-        <div class="service-card">
-          <h3>Backend Integration</h3>
-          <p>Connecting apps to Firebase, REST APIs, and SQLite for robust and scalable backend solutions.</p>
+          <h3>Software Development</h3>
+          <p>Building high-performance, multi cross-platform mobile, desktop, web apps using Flutter and Dart with stunning UI. Connecting apps to Firebase, REST APIs, and SQLite for robust and scalable backend solutions.</p>
         </div>
         <div class="service-card">
           <h3>UI/UX Designing</h3>
@@ -553,6 +553,10 @@
         <div class="project-card">
           <h3>Clima Weather App</h3>
           <p>A weather forecasting Flutter app with real-time data and elegant UI.</p>
+        </div>
+        <div class="project-card">
+          <h3>Personal Portfolio</h3>
+          <p>A portfolio web app to show my skills, services, projects.</p>
         </div>
       </div>
     </section>
